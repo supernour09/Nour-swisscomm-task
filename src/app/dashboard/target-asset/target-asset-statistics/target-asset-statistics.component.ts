@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges} from '@angular/core';
-import {TargetAsset} from "../target-asset.modal";
+import {TargetAsset, TargetAssetStatus} from "../target-asset.modal";
 
 @Component({
   selector: 'app-target-asset-statistics',
@@ -18,7 +18,7 @@ export class TargetAssetStatisticsComponent implements OnChanges {
   ngOnChanges(): void {
     this.totalCpu = this.targetAssets.reduce((acc, curr) => acc + curr.cpu, 0);
     this.totalRam = this.targetAssets.reduce((acc, curr) => acc + curr.ram, 0);
-    this.totalRunningAssets = this.targetAssets.filter(asset => asset.status === 'running').length
+    this.totalRunningAssets = this.targetAssets.filter(asset => asset.status === TargetAssetStatus.Running).length
   }
 
 }

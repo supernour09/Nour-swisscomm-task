@@ -17,12 +17,13 @@ import { TargetAssetStatisticsComponent } from './target-asset-statistics/target
 import {NzCollapseModule} from "ng-zorro-antd/collapse";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzInputModule} from "ng-zorro-antd/input";
-import { TargetAssetDetailsComponentComponent } from './target-asset-details-component/target-asset-details-component.component';
+import { TargetAssetDetailsComponent } from './target-asset-details-component/target-asset-details.component';
+import {NzSpinModule} from "ng-zorro-antd/spin";
 
 
 @NgModule({
   declarations: [
-    TargetAssetsListViewComponent, TargetAssetPipe, TargetAssetStatisticsComponent, TargetAssetDetailsComponentComponent
+    TargetAssetsListViewComponent, TargetAssetPipe, TargetAssetStatisticsComponent, TargetAssetDetailsComponent
   ],
     imports: [
         CommonModule,
@@ -36,6 +37,7 @@ import { TargetAssetDetailsComponentComponent } from './target-asset-details-com
         NzCollapseModule,
         NzButtonModule,
         NzInputModule,
+        NzSpinModule,
     ],
     providers: [TargetAssetService]
 })

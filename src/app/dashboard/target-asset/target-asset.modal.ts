@@ -14,8 +14,8 @@ export interface TargetAsset {
 }
 
 export enum TargetAssetStatus {
-    Running = 'running',
-    Stopped = 'stopped',
-    MigrationFailed = 'migration-failed',
-    Unknown = 'unknown'
+    Running = 'Running',
+    Stopped = 'Stopped',
+    MigrationFailed = 'MigrationFailed',
+    Unknown = 'Unknown'
 }

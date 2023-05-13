@@ -3,9 +3,13 @@ import {TargetAssetState} from "./target-asset.store";
 
 export const targetAssetsSelect = createFeatureSelector<TargetAssetState>('targetAssets');
 
-export const selectTargetAssets = createSelector(
+export const getTargetAssetById = (id: number) => createSelector(
     targetAssetsSelect,
-    state => state.targetAssets
+    state => state.targetAssets.find(asset => asset.id === id)
+);
+export const selectedTargetAssets = createSelector(
+    targetAssetsSelect,
+    state => state.selectedTargetAsset
 );
 
 export const selectFilteredTargetAssets = createSelector(
@@ -17,3 +21,4 @@ export const selectIsLoading = createSelector(
     targetAssetsSelect,
     state => state.isLoading
 );
+

@@ -15,7 +15,7 @@ export const loadTargetAssetsFailure = createAction(
 
 export const selectTargetAsset = createAction(
     '[Target Asset] Select',
-    props<{ targetAsset: TargetAsset }>()
+    props<{ selectedTargetAsset: TargetAsset }>()
 );
 
 export const updateSearchTerm = createAction(

@@ -52,8 +52,11 @@ Following some general advice/tips:
 ## Tasks
 Before you start: Please beware that the purpose of this challenge is to get an insight into your thought process when solving a problem. Because of that, it's critical that you document the decisions you make during implementation. You can add a new paragraph below each numbered task in the tasks section inside this markup file in which you write down your thoughts and why you decided to implement it the way you did.
 
-1. Create a new lazy-loaded `dashboard` module which is accessible by the route `/dashboard`. For simplicity, we want that all other routes are being redirected to this module.  
+> I have used ng-zorro And ngRx to design the solution 
 
+1. Create a new lazy-loaded `dashboard` module which is accessible by the route `/dashboard`. For simplicity, we want that all other routes are being redirected to this module.  
+   
+   > create Dashboard module that all the routes route for it and it has a target Asset module that has all the task details and solution , I have choose to do it this way to give chance in future to have more modules inside the dashboard and the layout screen explain it more currently all redirect to the asset page 
 
 2. In this module, create a service, which fetches all target assets from the end point `/targetasset`.
 
@@ -61,7 +64,18 @@ Before you start: Please beware that the purpose of this challenge is to get an 
 
 3. Render all target assets. You don't need to display all data. Just some important ones! [vCloud Example](https://thinfactory.com/wp-content/uploads/afbeelding-vcloud-director.jpg)
 4. Add a loading indicator when the data are being loaded.
+
+   > Added loading indicator in the list view component , didn't go with global loader cause it always hard to maintain and does't look good 
+
 5. Use the target asset `status` property to highlight the target asset.
+
+    > Changed the color of border of card 
+
 6. Add an input field where the user is able to filter the target assets by the `name` and `status` property.
+
+   >    Added Search filed that fire Action with reduce that filter list buy status or name property
+
 7. Above the input field, add some nice statistics calculated by all target assets. e.g. Total of CPUs.
+   > Added Text in the right shows total CPU , Total Rams , Total Running Asset in statistics component
 8. Add a target asset details page. This page is accessible by the route `/dashboard/assets/{:id}`. List all information in a meaningful way. You might have noticed, the target assets are bound together in a hierarchical order via their `parentId` property. Use the `parentId` information to show the `name` of the parent target asset and create a hyperlink to get to the next target asset.
+   > Added new component for details page and have selecter to get the element by id and use mergeMap to get the parent 

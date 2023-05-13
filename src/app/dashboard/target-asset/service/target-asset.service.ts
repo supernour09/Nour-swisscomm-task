@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {TargetAsset} from "../target-asset.modal";
-import {Observable, map} from "rxjs";
+import {Observable, map } from "rxjs";
+import {environment} from "../../../../environments/environment";
 
 @Injectable()
 export class TargetAssetService {
-    private targetAssetUrl = 'https://adb47d56-1aa9-4aa7-8ec2-77a923b80a5b.mock.pstmn.io/targetasset';
+    private targetAssetUrl = environment.appUrl + 'targetasset';
 
     constructor(private http: HttpClient) {}
 

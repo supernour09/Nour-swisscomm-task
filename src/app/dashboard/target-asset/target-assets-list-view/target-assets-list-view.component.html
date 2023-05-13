@@ -1,16 +1,11 @@
-<ng-container *ngIf="targetAssets$ | async as targetAssets; else loading" >
-
+<ng-container *ngIf="(isLoading$ | async ) === false && ( targetAssets$ | async ) as targetAssets" >
     <div class="filter-stats">
         <div class="search">
             <label>Search : </label>
             <input nz-input type="text" placeholder="Filter by name or status" [(ngModel)]="searchText" (ngModelChange)="onSearchTermChange($event)" />
         </div>
-
         <app-target-asset-statistics [targetAssets]="targetAssets"></app-target-asset-statistics>
-
-
     </div>
-
     <div class="target-List">
         <div *ngIf="targetAssets.length === 0">No results found.</div>
 
@@ -28,7 +23,7 @@
                         <span *ngIf="assetDetail.key === 'ram'"> {{ targetAsset[assetDetail.key ] / (1024*1024*1024) | number:'1.2-2' }} GB</span>
 
                     </div>
-                    <button nz-button nzType="link">
+                    <button nz-button nzType="link" (click)="moreDetails(targetAsset)">
                         More Details
                         <span nz-icon nzType="right"></span>
                     </button>
@@ -36,6 +31,9 @@
             </nz-card>
         </div>
     </div>
-
 </ng-container>
-<ng-template #loading>Loading target assets...</ng-template>
+
+<div *ngIf="isLoading$ | async" class="loading">
+    <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+    <span>Loading target assets...</span>
+</div>

@@ -23,19 +23,19 @@
   padding: 10px;
 }
 
-.asset-status.running {
+.asset-status.Running {
   border-color: green; // set the border color for running assets
 }
 
-.asset-status.stopped {
+.asset-status.Stopped {
   border-color: red; // set the border color for stopped assets
 }
 
-.asset-status.migration-failed {
+.asset-status.MigrationFailed {
   border-color: orange; // set the border color for assets with migration failure
 }
 
-.asset-status.unknown {
+.asset-status.Unknown {
   border-color: gray; // set the border color for unknown assets
 }
 
@@ -48,4 +48,12 @@
   .search{
     height: fit-content;
   }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }

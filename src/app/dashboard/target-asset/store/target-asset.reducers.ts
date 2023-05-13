@@ -12,9 +12,9 @@ export const targetAssetReducer = createReducer(
     on(loadTargetAssets, state => ({ ...state, isLoading: true })),
     on(loadTargetAssetsSuccess, (state, { targetAssets }) => ({ ...state, targetAssets, filteredTargetAssets : targetAssets ,isLoading: false })),
     on(loadTargetAssetsFailure, state => ({ ...state, isLoading: false })),
-    on(selectTargetAsset, (state, { targetAsset }) => ({
+    on(selectTargetAsset, (state, { selectedTargetAsset }) => ({
         ...state,
-        selectedTargetAsset: targetAsset
+        selectedTargetAsset: selectedTargetAsset
     })),
     on(updateSearchTerm, (state, { searchTerm }) => ({
         ...state,

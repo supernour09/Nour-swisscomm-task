@@ -1,0 +1,16 @@
+<h2>Target Asset Details</h2>
+<div *ngIf="selectedTargetAssets$ | async as targetAsset">
+    <div>Name: {{ targetAsset.name }}</div>
+    <div>Status: {{ targetAsset.status }}</div>
+    <div>Location: {{ targetAsset.location }}</div>
+    <div>Owner: {{ targetAsset.owner }}</div>
+    <div>Created By: {{ targetAsset.createdBy }}</div>
+    <div>CPU: {{ targetAsset.cpu }}</div>
+    <div>RAM: {{ targetAsset.ram }}</div>
+    <div>Created At: {{ targetAsset.createdAt }}</div>
+    <div *ngIf="parentTargetAsset$ | async as parentTargetAsset">
+        <div *ngIf="targetAsset.id !== parentTargetAsset.id">Parent Target Asset: <a [routerLink]="['/dashboard/assets', parentTargetAsset.id]" (click)="routeParent(parentTargetAsset)">{{ parentTargetAsset.name }}</a></div>
+        <div *ngIf="targetAsset.id === parentTargetAsset.id">Parent Target Asset: Root </div>
+
+    </div>
+</div>
