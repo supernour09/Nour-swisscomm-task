@@ -10,6 +10,7 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 import { AppComponent } from "./app.component";
 import {HttpClientModule} from "@angular/common/http";
+import {IconModule} from "@ant-design/icons-angular";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,9 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    NzDropDownModule],
+    NzDropDownModule,
+    IconModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

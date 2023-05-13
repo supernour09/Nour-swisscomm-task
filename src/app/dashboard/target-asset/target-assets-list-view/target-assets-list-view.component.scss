@@ -1,0 +1,10 @@
+.target-List {
+  background: #ECECEC;
+  padding:30px;
+  .grid{
+    display: Grid;
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
