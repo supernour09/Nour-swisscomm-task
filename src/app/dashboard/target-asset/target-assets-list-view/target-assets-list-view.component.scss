@@ -1,5 +1,5 @@
 .target-List {
-  background: #ECECEC;
+  background: white;
   padding:30px;
   display: Grid;
   column-gap: 30px;
@@ -37,4 +37,15 @@
 
 .asset-status.unknown {
   border-color: gray; // set the border color for unknown assets
+}
+
+
+.filter-stats{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  .search{
+    height: fit-content;
+  }
 }

@@ -14,11 +14,15 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import {TargetAssetPipe} from "./target-asset-filter.pipe";
 import {FormsModule} from "@angular/forms";
 import { TargetAssetStatisticsComponent } from './target-asset-statistics/target-asset-statistics.component';
+import {NzCollapseModule} from "ng-zorro-antd/collapse";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzInputModule} from "ng-zorro-antd/input";
+import { TargetAssetDetailsComponentComponent } from './target-asset-details-component/target-asset-details-component.component';
 
 
 @NgModule({
   declarations: [
-    TargetAssetsListViewComponent, TargetAssetPipe, TargetAssetStatisticsComponent
+    TargetAssetsListViewComponent, TargetAssetPipe, TargetAssetStatisticsComponent, TargetAssetDetailsComponentComponent
   ],
     imports: [
         CommonModule,
@@ -29,6 +33,9 @@ import { TargetAssetStatisticsComponent } from './target-asset-statistics/target
         EffectsModule.forFeature([TargetAssetEffects]),
         NzIconModule,
         FormsModule,
+        NzCollapseModule,
+        NzButtonModule,
+        NzInputModule,
     ],
     providers: [TargetAssetService]
 })

@@ -4,7 +4,7 @@ import {TargetAssetsListViewComponent} from "./target-assets-list-view/target-as
 
 const routes: Routes = [
   {
-    path: 'target',
+    path: 'assets',
     component: TargetAssetsListViewComponent
   }
 ];
