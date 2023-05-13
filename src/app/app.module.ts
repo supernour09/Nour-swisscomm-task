@@ -10,7 +10,9 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 import { AppComponent } from "./app.component";
 import {HttpClientModule} from "@angular/common/http";
-import {IconModule} from "@ant-design/icons-angular";
+import {EffectsModule} from "@ngrx/effects";
+import {StoreModule} from "@ngrx/store";
+import {NzIconModule} from "ng-zorro-antd/icon";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +25,9 @@ import {IconModule} from "@ant-design/icons-angular";
     NzLayoutModule,
     NzBreadCrumbModule,
     NzDropDownModule,
-    IconModule
+    NzIconModule,
+    StoreModule.forRoot([]),
+    EffectsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -53,9 +53,6 @@ Following some general advice/tips:
 Before you start: Please beware that the purpose of this challenge is to get an insight into your thought process when solving a problem. Because of that, it's critical that you document the decisions you make during implementation. You can add a new paragraph below each numbered task in the tasks section inside this markup file in which you write down your thoughts and why you decided to implement it the way you did.
 
 1. Create a new lazy-loaded `dashboard` module which is accessible by the route `/dashboard`. For simplicity, we want that all other routes are being redirected to this module.  
-   
-   Add Dashboard module as lazy-loaded , Dashboard module will have targetAsset module also lazy loaded 
-   to give flixablity in future to add more Pages to the dashboard and also have different pages other than dashboard  
 
 
 2. In this module, create a service, which fetches all target assets from the end point `/targetasset`.

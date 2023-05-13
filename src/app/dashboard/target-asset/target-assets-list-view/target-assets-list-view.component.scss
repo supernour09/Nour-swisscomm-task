@@ -1,10 +1,40 @@
 .target-List {
   background: #ECECEC;
   padding:30px;
-  .grid{
-    display: Grid;
-    column-gap: 30px;
-    row-gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  display: Grid;
+  column-gap: 30px;
+  row-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-grid{
+  display: Grid;
+  column-gap: 3px;
+  row-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.margin-left {
+  margin-left: 15px;
+}
+
+.asset-status {
+  border: 1px solid transparent; // set the default border to transparent
+  padding: 10px;
+}
+
+.asset-status.running {
+  border-color: green; // set the border color for running assets
+}
+
+.asset-status.stopped {
+  border-color: red; // set the border color for stopped assets
+}
+
+.asset-status.migration-failed {
+  border-color: orange; // set the border color for assets with migration failure
+}
+
+.asset-status.unknown {
+  border-color: gray; // set the border color for unknown assets
 }
