@@ -11,7 +11,6 @@ import {EffectsModule} from "@ngrx/effects";
 import {TargetAssetEffects} from "./store/target-asset.effects";
 import {targetAssetReducer} from "./store/target-asset.reducers";
 import {NzIconModule} from "ng-zorro-antd/icon";
-import {TargetAssetPipe} from "./target-asset-filter.pipe";
 import {FormsModule} from "@angular/forms";
 import { TargetAssetStatisticsComponent } from './target-asset-statistics/target-asset-statistics.component';
 import {NzCollapseModule} from "ng-zorro-antd/collapse";
@@ -23,7 +22,7 @@ import {NzSpinModule} from "ng-zorro-antd/spin";
 
 @NgModule({
   declarations: [
-    TargetAssetsListViewComponent, TargetAssetPipe, TargetAssetStatisticsComponent, TargetAssetDetailsComponent
+    TargetAssetsListViewComponent, TargetAssetStatisticsComponent, TargetAssetDetailsComponent
   ],
     imports: [
         CommonModule,

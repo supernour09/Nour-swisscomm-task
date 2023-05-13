@@ -11,6 +11,5 @@
     <div *ngIf="parentTargetAsset$ | async as parentTargetAsset">
         <div *ngIf="targetAsset.id !== parentTargetAsset.id">Parent Target Asset: <a [routerLink]="['/dashboard/assets', parentTargetAsset.id]" (click)="routeParent(parentTargetAsset)">{{ parentTargetAsset.name }}</a></div>
         <div *ngIf="targetAsset.id === parentTargetAsset.id">Parent Target Asset: Root </div>
-
     </div>
 </div>
