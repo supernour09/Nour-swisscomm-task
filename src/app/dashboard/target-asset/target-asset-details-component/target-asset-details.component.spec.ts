@@ -9,6 +9,8 @@ import {
 import {By} from "@angular/platform-browser";
 import {TargetAssetState} from "../store/target-asset.store";
 import { MemoizedSelector} from "@ngrx/store";
+import {of} from "rxjs";
+import {RouterTestingModule} from "@angular/router/testing";
 
 
 const targetAsset: TargetAsset = {
@@ -51,16 +53,10 @@ describe('TargetAssetDetailsComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [RouterTestingModule],
             declarations: [ TargetAssetDetailsComponent ],
             providers: [
-                provideMockStore({
-                    selectors: [
-                        {
-                            selector: 'getTargetAssetById',
-                            value: parentAsset,
-                        },
-                    ]
-                })
+                provideMockStore()
             ]
         })
             .compileComponents();
@@ -76,7 +72,40 @@ describe('TargetAssetDetailsComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    xit('should display root as parent if parent ID is null', () => {
+    it('should display the selected TargetAsset', () => {
+        const targetAsset: TargetAsset = {
+            id: 1,
+            name: 'Target Asset 1',
+            status: TargetAssetStatus.Running,
+            location: 'New York',
+            owner: 'John Doe',
+            createdBy: 'Jane Doe',
+            cpu: 4,
+            ram: 1080,
+            createdAt: new Date().toString(),
+            parentId: 2,
+            isStartable: true,
+            tags: ['test']
+        };
+
+        mockSelectedAsset.setResult(targetAsset);
+        component.parentTargetAsset$ = of(parentAsset);
+        store.refreshState();
+        fixture.detectChanges();
+
+        const name = fixture.debugElement.query(By.css('div:nth-of-type(1)')).nativeElement.textContent;
+        const status = fixture.debugElement.query(By.css('div:nth-of-type(2)')).nativeElement.textContent;
+        const location = fixture.debugElement.query(By.css('div:nth-of-type(3)')).nativeElement.textContent;
+        const parent = fixture.debugElement.query(By.css('div:nth-of-type(9)')).nativeElement.textContent;
+
+
+        expect(name).toContain(targetAsset.name);
+        expect(status).toContain(targetAsset.status);
+        expect(location).toContain(targetAsset.location);
+        expect(parent).toContain(`Parent Target Asset: ${parentAsset.name}`);
+    });
+
+    it('should display root as parent if parent ID is null', () => {
         const targetAsset: TargetAsset = {
             id: 1,
             name: 'Target Asset 1',
@@ -92,11 +121,13 @@ describe('TargetAssetDetailsComponent', () => {
             tags: ['test']
         };
 
-        store.overrideSelector(selectedTargetAssets, targetAsset);
-
+        mockSelectedAsset.setResult(targetAsset);
+        component.parentTargetAsset$ = of(parentAsset);
+        store.refreshState();
         fixture.detectChanges();
 
-        const parent = fixture.debugElement.query(By.css('div:nth-of-type(8)')).nativeElement.textContent;
+
+        const parent = fixture.debugElement.query(By.css('div:nth-of-type(9)')).nativeElement.textContent;
 
         expect(parent).toContain('Parent Target Asset: Root');
     });

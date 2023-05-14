@@ -1,15 +1,47 @@
-<h2>Target Asset Details</h2>
-<div *ngIf="selectedTargetAssets$ | async as targetAsset" id="details-box">
-    <div>Name: {{ targetAsset.name }}</div>
-    <div>Status: {{ targetAsset.status }}</div>
-    <div>Location: {{ targetAsset.location }}</div>
-    <div>Owner: {{ targetAsset.owner }}</div>
-    <div>Created By: {{ targetAsset.createdBy }}</div>
-    <div>CPU: {{ targetAsset.cpu }}</div>
-    <div>RAM: {{ targetAsset.ram }}</div>
-    <div>Created At: {{ targetAsset.createdAt }}</div>
-    <div *ngIf="parentTargetAsset$ | async as parentTargetAsset">
-        <div *ngIf="targetAsset.id !== parentTargetAsset.id">Parent Target Asset: <a [routerLink]="['/dashboard/assets', parentTargetAsset.id]" (click)="routeParent(parentTargetAsset)">{{ parentTargetAsset.name }}</a></div>
-        <div *ngIf="targetAsset.id === parentTargetAsset.id">Parent Target Asset: Root </div>
+<div class="details-box">
+    <h2>Target Asset Details</h2>
+    <div *ngIf="selectedTargetAssets$ | async as targetAsset" id="details-box" class="box">
+        <div>
+            <label>Name: </label>
+            <span>{{ targetAsset.name }}</span>
+        </div>
+        <div>
+            <label>Status: </label>
+            <span>{{ targetAsset.status }}</span>
+        </div>
+        <div>
+            <label>Location: </label>
+            <span>{{ targetAsset.location }}</span>
+        </div>
+        <div>
+            <label>Owner: </label>
+            <span>{{ targetAsset.owner }}</span>
+        </div>
+        <div>
+            <label>Created By: </label>
+            <span>{{ targetAsset.createdBy }}</span>
+        </div>
+        <div>
+            <label>CPU: </label>
+            <span>{{ targetAsset.cpu }}</span>
+        </div>
+        <div>
+            <label>RAM: </label>
+            <span>{{ targetAsset.ram / (1024*1024*1024) | number:'1.2-2' }} GB</span>
+        </div>
+        <div>
+            <label>Created At: </label>
+            <span>{{ targetAsset.createdAt }}</span>
+        </div>
+        <div *ngIf="parentTargetAsset$ | async as parentTargetAsset">
+            <div *ngIf="targetAsset.parentId !== null">
+                <label class="font-bold">Parent Target Asset: </label>
+                <a [routerLink]="['/dashboard/assets', parentTargetAsset.id]" (click)="routeParent(parentTargetAsset)">{{ parentTargetAsset.name }}</a>
+            </div>
+            <div *ngIf="targetAsset.parentId === null">
+                <label class="font-bold">Parent Target Asset:</label>
+                Root
+            </div>
+        </div>
     </div>
 </div>
