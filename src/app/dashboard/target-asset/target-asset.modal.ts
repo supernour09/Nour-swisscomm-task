@@ -10,7 +10,7 @@ export interface TargetAsset {
     cpu: number;
     ram: number;
     createdAt: string;
-    parentId: number;
+    parentId: number | null;
 }
 
 export enum TargetAssetStatus {

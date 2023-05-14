@@ -1,4 +1,7 @@
-<ng-container *ngIf="(isLoading$ | async ) === false && ( targetAssets$ | async ) as targetAssets" >
+<label>{{( targetAssets$ | async ) | json }}</label>
+<label>{{(isLoading$ | async ) === false }}</label>
+
+<div *ngIf="(isLoading$ | async ) === false && ( targetAssets$ | async ) as targetAssets" >
     <div class="filter-stats">
         <div class="search">
             <label>Search : </label>
@@ -7,7 +10,7 @@
         <app-target-asset-statistics [targetAssets]="targetAssets"></app-target-asset-statistics>
     </div>
     <div class="target-List">
-        <div *ngIf="targetAssets.length === 0">No results found.</div>
+        <div *ngIf="targetAssets.length === 0" id="no-results">No results found.</div>
 
         <div *ngFor="let targetAsset of targetAssets">
             <nz-card [nzTitle]="targetAsset.name"
@@ -31,7 +34,7 @@
             </nz-card>
         </div>
     </div>
-</ng-container>
+</div>
 
 <div *ngIf="isLoading$ | async" class="loading">
     <nz-spin nzSimple [nzSize]="'large'"></nz-spin>

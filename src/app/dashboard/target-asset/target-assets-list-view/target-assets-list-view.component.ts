@@ -41,10 +41,8 @@ export class TargetAssetsListViewComponent implements OnInit {
     this.store.dispatch(updateSearchTerm({ searchTerm }));
   }
 
-
   moreDetails(selectedTargetAsset: TargetAsset) {
     this.store.dispatch(selectTargetAsset({ selectedTargetAsset }));
     this.router.navigateByUrl(`/${dashboardUrl}/${assetsUrl}/${selectedTargetAsset.id}`);
-
   }
 }

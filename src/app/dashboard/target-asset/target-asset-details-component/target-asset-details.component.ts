@@ -11,7 +11,7 @@ import {selectTargetAsset} from "../store/target-asset.actions";
   templateUrl: './target-asset-details.component.html',
   styleUrls: [ './target-asset-details.component.scss']
 })
-export class TargetAssetDetailsComponent implements OnInit {
+export class TargetAssetDetailsComponent {
   selectedTargetAssets$: Observable<TargetAsset | null>;
   parentTargetAsset$: Observable<TargetAsset | null>;
 
@@ -20,7 +20,7 @@ export class TargetAssetDetailsComponent implements OnInit {
     this.parentTargetAsset$ = this.selectedTargetAssets$.pipe(
         map(targetAsset => targetAsset?.parentId ),
         mergeMap(parentId => {
-          if (parentId === undefined) {
+          if (parentId === undefined || parentId === null) {
             return of(null);
           } else {
             return this.store.select(getTargetAssetById(parentId));
@@ -32,8 +32,6 @@ export class TargetAssetDetailsComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-  }
 
   routeParent(selectedTargetAsset: TargetAsset) {
     this.store.dispatch(selectTargetAsset({ selectedTargetAsset }));

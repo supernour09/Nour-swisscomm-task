@@ -1,5 +1,5 @@
 <h2>Target Asset Details</h2>
-<div *ngIf="selectedTargetAssets$ | async as targetAsset">
+<div *ngIf="selectedTargetAssets$ | async as targetAsset" id="details-box">
     <div>Name: {{ targetAsset.name }}</div>
     <div>Status: {{ targetAsset.status }}</div>
     <div>Location: {{ targetAsset.location }}</div>
